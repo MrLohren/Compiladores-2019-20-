@@ -1,0 +1,4 @@
+empiece 
+ dato  L9 = (2189),
+ asigna Ñ9 = L9,
+ elimina L9,
