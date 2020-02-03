@@ -433,8 +433,11 @@ static const flex_int16_t yy_chk[95] =
 #line 2 "AL.l"
     #include <stdio.h>
     #include <stdlib.h>
-#line 437 "Scanner.cpp"
-#line 438 "Scanner.cpp"
+    #include <iostream>
+    #include <fstream>
+    using namespace std;
+#line 440 "Scanner.cpp"
+#line 441 "Scanner.cpp"
 
 #define INITIAL 0
 
@@ -566,10 +569,10 @@ YY_DECL
 		}
 
 	{
-#line 20 "AL.l"
+#line 23 "AL.l"
 
 
-#line 573 "Scanner.cpp"
+#line 576 "Scanner.cpp"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -628,90 +631,90 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 22 "AL.l"
+#line 25 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 23 "AL.l"
+#line 26 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 24 "AL.l"
+#line 27 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 25 "AL.l"
+#line 28 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 26 "AL.l"
+#line 29 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 27 "AL.l"
+#line 30 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 28 "AL.l"
+#line 31 "AL.l"
 {printf("Palabra reservada: %s\n",yytext);}
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 29 "AL.l"
+#line 32 "AL.l"
 {printf("Simbolo: %s\n", yytext);}
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 30 "AL.l"
+#line 33 "AL.l"
 {printf("Simbolo: %s\n", yytext);}
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 31 "AL.l"
+#line 34 "AL.l"
 {printf("Simbolo: %s\n", yytext);}
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 32 "AL.l"
+#line 35 "AL.l"
 {printf("Simbolo: %s\n", yytext);} 
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 33 "AL.l"
+#line 36 "AL.l"
 {printf("Numero entero %s\n",yytext);}
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 34 "AL.l"
+#line 37 "AL.l"
 {printf("Nombre: %s\n", yytext);}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 35 "AL.l"
+#line 38 "AL.l"
 {printf("Identificador %s\n",yytext);}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 37 "AL.l"
+#line 40 "AL.l"
 {}
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 38 "AL.l"
+#line 41 "AL.l"
 {printf("ERROR LEXICO\n");}
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 40 "AL.l"
+#line 43 "AL.l"
 ECHO;
 	YY_BREAK
-#line 715 "Scanner.cpp"
+#line 718 "Scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1674,5 +1677,17 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 40 "AL.l"
+#line 43 "AL.l"
 
+
+int main(){
+    cout << "#################" << endl;
+    cout << "ANALIZADOR LEXICO" << endl;
+    cout << "#################" << endl;
+
+    cout << "Ingrese comandos: \n";
+    yyFlexLexer* lexer = new yyFlexLexer();
+    while (lexer->yylex() != 0)
+        ;
+    return 0;
+}

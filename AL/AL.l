@@ -1,6 +1,9 @@
 %{
     #include <stdio.h>
     #include <stdlib.h>
+    #include <iostream>
+    #include <fstream>
+    using namespace std;
 %}
 
 %option c++
@@ -38,3 +41,15 @@ DELIMITADOR [\t\r\f" "]
 .             {printf("ERROR LEXICO\n");}
 
 %%
+
+int main(){
+    cout << "#################" << endl;
+    cout << "ANALIZADOR LEXICO" << endl;
+    cout << "#################" << endl;
+
+    cout << "Ingrese comandos: \n";
+    yyFlexLexer* lexer = new yyFlexLexer();
+    while (lexer->yylex() != 0)
+        ;
+    return 0;
+}
